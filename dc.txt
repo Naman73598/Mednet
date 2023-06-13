@@ -1,0 +1,160 @@
+peerjs --port 3001
+
+
+
+
+
+
+
+
+
+
+
+PS D:\MedBuddy> mongo
+mongo : The term 'mongo' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ mongo
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (mongo:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS D:\MedBuddy> mongosh
+Current Mongosh Log ID: 631c90363a320a5e688b30d8
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.2
+Using MongoDB:          5.3.1
+Using Mongosh:          1.5.2
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-09-10T18:53:39.198+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> show dbs
+admin      40.00 KiB
+config     84.00 KiB
+local     104.00 KiB
+medbuddy  296.00 KiB
+test> use medbuddy
+use medbuddy
+
+test> use medbuddy
+switched to db medbuddy
+medbuddy> show collections
+doctors
+doctorstats
+patientstats
+users
+medbuddy> users.find()
+ReferenceError: users is not defined
+medbuddy> user.find()
+ReferenceError: user is not defined
+medbuddy> db.user.find()
+
+medbuddy> db.users.find()
+[
+  {
+    _id: ObjectId("62e80122838f58374c6afd81"),
+    isAdmin: false,
+    appointedDoctors: [ '0' ],
+    currentDoctors: [ '0' ],
+    firstName: 'Shashank',
+    lastName: 'Venkat',
+    address: {
+      street: '1196 18th main jpnagar 2nd phase Bangalore-560078',
+      city: ' Bangalore ',
+      state: 'Karnataka',
+      zip: 560078
+    },
+    gender: 'Male',
+    username: 'shashank',
+    email: 'shashyv@gmail.com',
+    phone: '9880434937',
+    role: 'patient',
+    joinedAt: ISODate("2022-08-01T16:36:50.909Z"),
+    salt: 'bf91b701344fb8b9e1f866c210c6a5dda30500e001f1738c542674f096ff039c',
+    hash: '6ceb1a6329b3c4f8129582db4a617cc4d80cdbd6fb3274ae9b0a2286e98acb41a4126566bb478b9cc300b6f5f5e1b0b26eab6f1ce6e13e0d2a669321b88988e571d2a7f70b1f1c1623af90f5639fe569426cea959b9f430d49bb90a044df8d33d2967290eea056118e146e043ef69f6b81efad420efe56c04cd5e6fff9b6115b62137164d6763ca646e0d05f28cd4979a201f51c98b425d635ab60e92d97c0962e22f77db4ceb2a65f9944e0a33508cd97969dc16dfd3befa4d79295f2780d250d21c5817766c3a2818bed167569a9a8bb002153315da38ac8c7bc4cff2fd944f66b9a129c30115a1f3a99b8a50a84f2e69b0324d27909de15b7c1fb78beae566511d95a3c25623606646b2c4d158fb35fe0ac9b129283317dc469a98c9997c16995afa834e510f3b35a7d495cbf031b68ea8a60c4db5d97655264eb9d3fd7fe5f6f74e7ae6353692ad1de0b8385380917b9ea971a75ea43f53a546e77376c573d11c4659e59adc12131c7eee2d2f6214436514cc8ac912bcfbafbb648578591ec6ffa79dda8c6553f4b237f4041eece42355f88eb9485f4a48da062d2b9dce07e13ea1b2cf8f7009609ec54ca01a37ebfcfd6ed17a3cb3175e9cb1b99b905e837f8807e60b1fae8150a521fb3589faf2d1b3d69c2deed62ee83521821077b4e660d04163f21114a024d60c013fa1276ede123b0ba4fda80dbf20654e91228f2',
+    __v: 0
+  },
+  {
+    _id: ObjectId("62e80195838f58374c6afdb3"),
+    isAdmin: false,
+    appointedDoctors: [ '0' ],
+    currentDoctors: [ '0' ],
+    firstName: 'Dhananjay',
+    lastName: 'Nigam',
+    address: {
+      street: 'Kanpur',
+      city: ' Kanpur ',
+      state: 'Uttar Pradesh',
+      zip: 22222
+    },
+    gender: 'Male',
+    username: 'abde',
+    email: 'dhananjay.nigam2019@vitstudent.ac.in',
+    phone: '7800922107',
+    role: 'doctor',
+    joinedAt: ISODate("2022-08-01T16:38:45.474Z"),
+    salt: 'bbabc0bd446cb42c6260608a5e9fbddf8e2491b2afee8fbaef7bf3fbfe4b6e53',
+    hash: '86d4254bd8e55e42161b7e0f209a40f252bf25be795f245171a0a821fc6200464cf35da3a7b1235d334cac89d99c6dd2ae4e93a785375e3f491b3926267a83a8be61cbd2f8315a3242f641ba8509755685699963b473e1aff0d01917c2c6592de5f9058256e42cd256d9e587700e81a933a372284300ce140a5bd1fe8b6a2c295552e14efe4c3c07ef912d565d0850bf5b66a2da12b12c28cb708f3784eb14479f561e585257cb57fe1bcd52dc45d8bef8dc7379bdc7b9c58c05f3d22384edcc23c82726a3af306de73e05c482d07fcd3b546450e92d58659e6936a609fcddab8d2703cb743c168483de5eb64073d65167b6a0488758f460547c8670a0540b1d455207a4e76471457d8aa577e4853a18441f482d4292565d6b1484233cb649461e4d4567a1a14a266eef6e495481e3dd0aca93a46255cba67f58e13065db33df6c8185a017e4fd2c4a9b6d047125857f5645dc89dadece56ed235ce69182b345e6a49bb5f03c5c8bdba9ddcb97b84cf2f2386b8a686f7cbeec86f09d0b6966b10a1fef175a73a7a66131b2ab236b92a353320321049165f2df1522afe143ffbf9f075587ce84af9bc523f5662e2997f91a8b411d153327b3e3cd529a4afe2132617caf4e54a7b3d2c34946e64af0b6f36d76c3d46e315a609256a0d8e83154add8619868a7c49ae093020b6598e7e8d47469cd88843c490ff2b60013a31e058c',
+    __v: 0
+  },
+  {
+    _id: ObjectId("62eca12a4b40f30b64f40128"),
+    isAdmin: false,
+    appointedDoctors: [ '0' ],
+    currentDoctors: [ '0' ],
+    firstName: 'Shashank',
+    lastName: 'Venkat',
+    address: {
+      street: 'JP Nagar',
+      city: ' Bangalore ',
+      state: 'Karnataka',
+      zip: 560078
+    },
+    gender: 'Male',
+    username: 'sv',
+    email: 'shashyv@gmail.com',
+    phone: '9880434937',
+    role: 'patient',
+    joinedAt: ISODate("2022-08-05T04:48:42.894Z"),
+    salt: '3f45e25b1e7f33188b44083bf17011499f8d23fd24b63aa069668cdce88fe060',
+    hash: '14e9de31df089fc96330d2ca17b8c4a1b1cc98212d7c4eb6f782895a6724d765ecaa12d37483a5adb1626f7f2e352e61b331e5b0112a9a439b0bdad56cad6d78da088c3670d4d4db68414ebfb6723d05337391b5407b565c0a2cde0d9d3b88498cab7159dba7d0f147ac737bd503ff004978ba975d46e8bb3aa7d5e4be63c73620c59bff2ee80af5b59c3558cc9f7ded005cc964df6d99e3bfb42f7b0bd49de2da1699edc743b2035a4d42d9899624897ea69a62df1327096bca20b4ab21f8d4087292c6c8aa642ef0e5c8f92149a372795f0c122df5bd0d8a675ed26c113be99c85d5c411418bc6b9c5e06e3134c021f1f6c1fe0e5cd6b46545b228dddb30e340403594e6628cd84a0b16d34f17ce1160851ffaf662925ebdfcd10c703350d02d91c300f9d4c9f39fa2b0ff203f236016779bdabba2755290f73bfcee6b18c4f46e340fc754a7f9c288508fc49d8ac67694c78edc111c2466e9f5c034a1d556530e18aee6528496a5ee8cb74f0da38ef1d8948f16972820789d39fb689214d40106b0b43777176984f53cfc6001d917e2e7210ac3af56cff4076ff2ebd157c265ef801e58b3cbe10b9ecb19306075c1cbe697ae64ff56c74965202b032bbae72669f57428b91ffed47dac1215032a9f3f787db70427deb2279d52da00f636a378ac5217d65a8b10181749c817cd0be28607602a3a4173b34b40cda90d5132f4',
+    __v: 0
+  },
+  {
+    _id: ObjectId("62eca1674b40f30b64f40135"),
+    isAdmin: false,
+    appointedDoctors: [ '0' ],
+    currentDoctors: [ '0' ],
+    firstName: 'Dhananjay',
+    lastName: 'Nigam',
+    address: {
+      street: 'Kanpur',
+      city: ' Alipur ',
+      state: 'Andaman & Nicobar',
+      zip: 11111
+    },
+    gender: 'Male',
+    username: 'dj',
+    email: 'nigamdhananjay@gmail.com',
+    phone: '7800922107',
+    role: 'doctor',
+7fef7f02a72b845761aef9d6bc7de33e2a66d5594143bf7bacd53af4ba0632ef69a7fd20270d7e1f102d6c78fc08f3b7ca7fc4f7b94664233cd665fecd4',    __v: 0  }]medbuddy> db.users.find({"isAdmin":true})
+medbuddy>
+
+
